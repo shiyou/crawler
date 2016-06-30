@@ -19,7 +19,6 @@ import org.apache.pdfbox.text.PDFTextStripper;
 import org.apache.pdfbox.text.PDFTextStripperByArea;
 
 public class PDFReader {
-	
 	static String pdfPath ="c:\\Redis in Action.pdf";
 	static String textPath ="c:\\words.txt";
 	static String cet4Path = "C:\\cet4.txt";
