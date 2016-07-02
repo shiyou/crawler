@@ -10,4 +10,6 @@ public interface UserDao {
 	List<UserPo> getUser();
 
 	UserPo getUserById(String userId);
+	
+	int add(UserPo userPo);
 }

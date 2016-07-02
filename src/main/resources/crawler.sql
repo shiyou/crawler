@@ -1,0 +1,1 @@
+create table user_(id_ VARCHAR(64),name_ VARCHAR(32),password_ VARCHAR(64));
