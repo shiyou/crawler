@@ -26,5 +26,7 @@ public class UserController {
 	public void testUser2(){
 		List<UserPo> pos = userService.getUser();
 		System.out.println(pos.size());
+		
+		
 	}
 }
