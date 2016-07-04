@@ -1,6 +1,10 @@
 package com.crawler.dao;
 
+import java.io.Serializable;
 
-public interface CrawlerInfoDao {
+import com.common.GenericDAO;
+import com.crawler.po.CrawlerInfoPo;
+
+public interface CrawlerInfoDao extends GenericDAO<CrawlerInfoPo, Serializable>{
 
 }

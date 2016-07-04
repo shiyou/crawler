@@ -5,3 +5,12 @@
 
 代码生成工具：MyBatis Generator (MBG)
 spring boot
+
+
+Netty
+
+Redis
+
+solr
+
+mybatis 中的mapper.xml 的namespace必须是po对象路径

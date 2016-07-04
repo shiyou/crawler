@@ -1,5 +1,7 @@
 package com.crawler.po;
 
-public class CrawlerInfoPo {
+import com.crawler.tbl.CrawlerInfoTbl;
+
+public class CrawlerInfoPo extends CrawlerInfoTbl{
 
 }
