@@ -1,30 +1,39 @@
 package until;
 
-import java.sql.DriverManager;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
-
-import com.mysql.jdbc.Connection;
+import org.junit.Test;
 
 public class GeneratorUtil {
 
 	/**
 	 * 读取数据库
+	 * @throws IOException 
 	 */
-	public void readDataBase(){
-		String[] configLocation = {"database.properties"};
-		ApplicationContext context = new FileSystemXmlApplicationContext(configLocation);
+	public void readDataBase() throws IOException{
 		Properties properties = new Properties();
-//		Connection connection  = DriverManager.getConnection(context.get, user, password);
+		InputStream inStream =GeneratorUtil.class.getResourceAsStream("../jdbc.properties");
+		properties.load(inStream);
+		properties.getProperty("username");
 	}
 	
-	/**
+	/**	
 	 * 生成代码
 	 */
 	public void genertorCode(){
 		String tableName = "crawl_info_";
 		
+	}
+	
+	@Test
+	public void test(){
+		try {
+			readDataBase();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
