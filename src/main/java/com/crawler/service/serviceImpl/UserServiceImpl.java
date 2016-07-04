@@ -23,4 +23,8 @@ public class UserServiceImpl implements UserService{
 		return this.userDao.getUser();
 	}
 
+	public int add(UserPo userPo) {
+		return this.userDao.add(userPo);
+	}
+
 }

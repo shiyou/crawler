@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -13,6 +14,7 @@ import com.crawler.service.UserService;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+	Logger logger = Logger.getLogger(UserController.class);
 	@Resource
 	private UserService userService;
 	
@@ -29,4 +31,42 @@ public class UserController {
 		
 		
 	}
+	
+	@RequestMapping("save")
+	public void save(UserPo userPo){
+		userService.add(userPo);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

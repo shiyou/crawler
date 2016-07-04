@@ -9,5 +9,7 @@ public interface UserService {
 	UserPo getUserById(String id);
 	
 	List<UserPo> getUser();
+	
+	int add(UserPo userPo);
 
 }

@@ -24,6 +24,10 @@ public class UserDaoImpl implements UserDao{
 		return sqlSession.selectOne("getUserById", id);
 	}
 
+	public int add(UserPo userPo) {
+		return sqlSession.insert("insert", userPo);
+	}
+
 	
 		
 }
