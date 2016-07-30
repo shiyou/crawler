@@ -1,7 +1,7 @@
---test @date 
+-- test @date 
 create table user_(id_ VARCHAR(64),name_ VARCHAR(32),password_ VARCHAR(64));
 
---crawler_ 
+-- crawler_ 
 CREATE TABLE `crawl_info_` (
   `id_` varchar(64) NOT NULL,
   `title_` varchar(64) DEFAULT NULL COMMENT '标题',
