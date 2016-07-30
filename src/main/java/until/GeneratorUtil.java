@@ -12,7 +12,7 @@ public class GeneratorUtil {
 	 * 读取数据库
 	 * @throws IOException 
 	 */
-	public void readDataBase() throws IOException{ a
+	public void readDataBase() throws IOException{
 		Properties properties = new Properties();
 		InputStream inStream =GeneratorUtil.class.getResourceAsStream("../jdbc.properties");
 		properties.load(inStream);
