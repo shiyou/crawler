@@ -11,7 +11,7 @@
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 	<!-- 自动扫描 -->
 	<context:component-scan base-package="com.crawler" />
-	<context:component-scan base-package="crawler.news" /> 
+	<context:component-scan base-package="crawler.news" />
 	<!-- 引入配置文件 -->
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -43,21 +43,19 @@
 		<property name="mapperLocations" value="classpath:com/crawler/mapping/*.xml"></property>
 	</bean>
 
-	<!-- DAO接口所在包名，Spring会自动查找其下的类 
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.crawler.dao" />
-		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
-	</bean>-->
+	<!-- DAO接口所在包名，Spring会自动查找其下的类 <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> 
+		<property name="basePackage" value="com.crawler.dao" /> <property name="sqlSessionFactoryBeanName" 
+		value="sqlSessionFactory"></property> </bean> -->
 
 	<!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
-	<!-- sqlSession  -->
+
+	<!-- sqlSession -->
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-		 <constructor-arg index="0" ref="sqlSessionFactory"/> 
+		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
 
 </beans>
