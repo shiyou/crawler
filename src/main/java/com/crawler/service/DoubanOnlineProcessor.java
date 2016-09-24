@@ -29,7 +29,7 @@ public class DoubanOnlineProcessor implements PageProcessor{
 
 	@Override
 	public void process(Page page) {
-		Map<String, List<String>> contentMap = new HashMap<>();
+//		Map<String, List<String>> contentMap = new HashMap<>();
 		List<String> images = new ArrayList<>();
 		List<String> nameLinks = new ArrayList<>();
 		List<String> names = new ArrayList<>();

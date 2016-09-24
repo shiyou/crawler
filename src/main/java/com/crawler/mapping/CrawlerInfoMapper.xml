@@ -17,7 +17,7 @@
 	</resultMap>
 	<insert id="insert" parameterType="com.crawler.po.CrawlerInfoPo">
 		insert into
-		crawl_info_(id_,title_,desc_,content_,img_,pulish_author_,pulish_time_,requst_from_,requst_url_,create_by_,create_time_)
+		crawl_info(id_,title_,desc_,content_,img_,pulish_author_,pulish_time_,requst_from_,requst_url_,create_by_,create_time_)
 		values
 		(#{id},#{title},#{desc},#{content},#{img},#{pulishAuthor},#{pulishTime},#{requstFrom},#{requstUrl},#{createBy},#{createTime})
 	</insert>
