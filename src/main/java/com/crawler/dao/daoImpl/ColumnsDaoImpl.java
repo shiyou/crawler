@@ -15,8 +15,8 @@ public class ColumnsDaoImpl implements ColumnsDao{
 	@Resource
 	private SqlSession sqlSession;
 
-	public List<ColumnsPo> list(ColumnsPo columnPo) {
-		return sqlSession.selectList("list", columnPo);
+	public List<ColumnsPo> list(ColumnsPo columnsPo) {
+		return sqlSession.selectList("list", columnsPo);
 	}
 
 }

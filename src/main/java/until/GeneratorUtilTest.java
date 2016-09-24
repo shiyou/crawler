@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
@@ -22,19 +23,31 @@ import com.crawler.service.UserService;
 public class GeneratorUtilTest {
 	
 	@Autowired
-	private ColumnsService columnService;
+	private ColumnsService columnsService;
 	@Autowired
 	private UserService userService;
 	
 	@Test
-	public void getColumn(){
-		ColumnsPo columnPo = new ColumnsPo();
-		columnPo.setTableSchema("crawler");
-		columnPo.setTableName("crawl_info_");
-		List<ColumnsPo> columnPos = columnService.list(columnPo);
-		for(ColumnsPo po:columnPos){
+	public List<ColumnsPo> getColumns(){
+		ColumnsPo columnsPo = new ColumnsPo();
+		columnsPo.setTableSchema("crawler");
+		columnsPo.setTableName("crawl_info");
+		List<ColumnsPo> columnPos = columnsService.list(columnsPo);
+		return columnPos;
+	/*	for(ColumnPo po:columnPos){
 			System.out.println(po.toString());
+		}*/
+	}
+	
+	public List<Field> buildField(){
+		List<ColumnsPo> columnPos = getColumns();
+		List<Field> fields = new ArrayList<>();
+		for(ColumnsPo columnPo:columnPos){
+			Field field = new Field();
+			field.setColumnName(columnPo.getColumnName());
+			field.setColumnType(columnPo.getColumnType());
 		}
+		return fields;
 	}
 	
 	/**
@@ -57,6 +70,27 @@ public class GeneratorUtilTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+	}
+	
+	/**
+	 * 生成po
+	 */
+	public void generatePo(){
+		
+	}
+	
+	/**
+	 * 生成dao
+	 */
+	public void generateDao(){
+		
+	}
+	
+	/**
+	 * 生成Service
+	 */
+	public void generateService(){
 		
 	}
 	

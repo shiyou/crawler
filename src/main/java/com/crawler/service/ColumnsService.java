@@ -6,6 +6,6 @@ import com.crawler.po.ColumnsPo;
 
 public interface ColumnsService {
 	
-	List<ColumnsPo> list(ColumnsPo columnPo);
+	List<ColumnsPo> list(ColumnsPo columnsPo);
 
 }

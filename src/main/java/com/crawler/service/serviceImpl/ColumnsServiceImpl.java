@@ -11,13 +11,13 @@ import com.crawler.po.ColumnsPo;
 import com.crawler.service.ColumnsService;
 
 @Service
-public class ColumnsServviceImpl implements ColumnsService{
+public class ColumnsServiceImpl implements ColumnsService{
 	
 	@Resource
 	private ColumnsDao columnDao;
 
-	public List<ColumnsPo> list(ColumnsPo columnPo) {
-		return columnDao.list(columnPo);
+	public List<ColumnsPo> list(ColumnsPo columnsPo) {
+		return columnDao.list(columnsPo);
 	}
 	
 }

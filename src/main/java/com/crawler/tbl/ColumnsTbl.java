@@ -1,9 +1,22 @@
 package com.crawler.tbl;
 
-
+/**
+ * 表字段
+ * @author hjd
+ * @date 2016年9月22日
+ * @table(COLUMNS)
+ */
 public class ColumnsTbl {
 	
+	/**
+	 * 表模式 
+	 * @column(TABLE_SCHEMA)
+	 */
 	private String tableSchema;
+	/**
+	 * 表名 
+	 * @column(TABLE_NAME)
+	 */
 	private String tableName;
 	private String columnName;
 	private Integer ordinalPosition;

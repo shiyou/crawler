@@ -2,7 +2,7 @@
 create table user_(id_ VARCHAR(64),name_ VARCHAR(32),password_ VARCHAR(64));
 
 -- crawler_ 
-CREATE TABLE `crawl_info_` (
+CREATE TABLE `crawl_info` (
   `id_` varchar(64) NOT NULL,
   `title_` varchar(64) DEFAULT NULL COMMENT '标题',
   `desc_` varchar(256) DEFAULT NULL COMMENT '描述',
