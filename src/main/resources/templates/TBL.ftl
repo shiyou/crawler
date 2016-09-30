@@ -24,7 +24,6 @@ public class ${rawObject.name}Tbl {
 		public void set${field.name?cap_first }(${field.type} ${field.name}){
 			this.${field.name} = ${field.name};
 		}
-		
 	</#list>
 	
 	@Override

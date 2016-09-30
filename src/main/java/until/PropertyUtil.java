@@ -18,7 +18,6 @@ public class PropertyUtil {
 		}
 		return inStream;
 	}
-	
 	public  void setInputSteam(String path){
 		inStream = ClassLoader.getSystemResourceAsStream(path);
 	}
@@ -36,12 +35,4 @@ public class PropertyUtil {
 	}
 
 	
-	public static void main(String[] args){
-		String url = PropertyUtil.getPropValue("url");  
-		String user = PropertyUtil.getPropValue("user");     
-		String password = PropertyUtil.getPropValue("password");  
-		System.out.println(url);
-		System.out.println(user);
-		System.out.println(getPropValue( "user"));
-	}
 }

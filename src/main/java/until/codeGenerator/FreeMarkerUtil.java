@@ -9,7 +9,6 @@ import java.io.Writer;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -129,6 +128,5 @@ public class FreeMarkerUtil {
 //		FreeMarkerUtil.processTbl("TBL.ftl");
 		FreeMarkerUtil.processMapper("Mapper.ftl");
 	}
-	
 	
 }

@@ -27,7 +27,6 @@ public class DataBuilder {
 	private static PreparedStatement pst =null;
 	private static ResultSet rs =null;
 	
-	
 	/**
 	 * 转换字段名称
 	 * 转换规则：
@@ -181,6 +180,5 @@ public class DataBuilder {
 		}
 		return columnsTbls;
 	}
-	
 	
 }
