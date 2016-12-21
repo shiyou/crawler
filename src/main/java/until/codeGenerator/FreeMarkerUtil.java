@@ -123,6 +123,24 @@ public class FreeMarkerUtil {
 		}
 	}
 	
+	/**
+	 * 生成DAO文件
+	 * @param templateName
+	 */
+	public static void processDao(String templateName){
+		createConfiguration();
+		Map<String, Object> dataModel = createDataModel();
+		Template temp  = getTemplate(templateName);
+		String fileName = PropertyUtil.getPropValue("tblUrl")+((RawObject)dataModel.get("rawObject")).getName()+"Tbl.java";
+		OutputStream outputStream;
+		try {
+			outputStream = new FileOutputStream(new File(fileName));
+			Writer out = new OutputStreamWriter(outputStream);
+			temp.process(dataModel, out);
+		} catch (TemplateException | IOException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public static void main(String[] args) throws Exception{
 //		FreeMarkerUtil.processTbl("TBL.ftl");

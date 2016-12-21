@@ -3,7 +3,6 @@
  */
 package study;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -30,7 +29,7 @@ public class CollectTest {
 	}
 
 	public static void main(String[] args){
-		String[] arr = new String[]{"12","b","54"};
+//		String[] arr = new String[]{"12","b","54"};
 		List<String> list = new ArrayList<>();
 		list.add("ds");
 		list.add("1222");

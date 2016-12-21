@@ -2,17 +2,12 @@ package com.crawler.service;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 
-import crawler.news.XueyoudaoPagePipeline;
-import crawler.news.XueyoudaoPageProcessor;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
@@ -49,7 +44,7 @@ public class DoubanOnlineProcessor implements PageProcessor{
 				try {
 					if(images.get(index)!=null && images.get(index).contains(".jpg")){
 						source = new URL(images.get(index).replace("thumb", "photo"));
-						String pathname ="C:\\image\\"+index+".jpg";
+						String pathname ="C:\\image2\\"+index+".jpg";
 						File destination = new File(pathname);
 						FileUtils.copyURLToFile(source, destination);
 					}
@@ -72,7 +67,7 @@ public class DoubanOnlineProcessor implements PageProcessor{
 	
 	public static void main(String[] args) throws IOException{
 		Spider.create(new DoubanOnlineProcessor())
-		.addUrl("https://www.douban.com/online/12168474/album/155485090/")
+		.addUrl("https://www.douban.com/online/11703772/album/126151438/")
 		.thread(5)
 		.run();
 		/*URL source = new URL("https://img1.doubanio.com/view/photo/photo/public/p2273282367.jpg");

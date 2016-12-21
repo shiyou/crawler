@@ -1,6 +1,7 @@
 package until.codeGenerator;
 
 /**
+ * 表信息
  * @author hjd
  * @date 2016年9月22日
  */
