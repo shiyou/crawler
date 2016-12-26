@@ -1,0 +1,152 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crawler.po.JoinCrawlerInfoPo">
+	<resultMap type="com.crawler.po.JoinCrawlerInfoPo" id="joinCrawlerInfoPo">
+		<id column="id_" property="id" />
+			<result column="ID_" property="id" />
+			<result column="TITLE_" property="title" />
+			<result column="DESC_" property="desc" />
+			<result column="CONTENT_" property="content" />
+			<result column="AUTHOR_" property="author" />
+			<result column="PUBLISH_TIME_" property="publishTime" />
+			<result column="VIEW_COUNT_" property="viewCount" />
+			<result column="FROM_TYPE_" property="fromType" />
+			<result column="FROM_URL_" property="fromUrl" />
+			<result column="CREATE_TIME_" property="createTime" />
+			<result column="CREATE_USER_" property="createUser" />
+			<result column="UPDATE_TIME_" property="updateTime" />
+			<result column="UPDATE_USER_" property="updateUser" />
+	</resultMap>
+
+	<select id="select" resultType="com.crawler.po.JoinCrawlerInfoPo">
+		SELECT 
+			ID_ id,
+			TITLE_ title,
+			DESC_ desc,
+			CONTENT_ content,
+			AUTHOR_ author,
+			PUBLISH_TIME_ publishTime,
+			VIEW_COUNT_ viewCount,
+			FROM_TYPE_ fromType,
+			FROM_URL_ fromUrl,
+			CREATE_TIME_ createTime,
+			CREATE_USER_ createUser,
+			UPDATE_TIME_ updateTime,
+			UPDATE_USER_ updateUser		FROM 
+			join_crawler_info 
+		WHERE 
+			id_ = #{id}
+	</select>
+
+	<insert id="insert">
+		INSERT INTO join_crawler_info(
+			ID_,
+			TITLE_,
+			DESC_,
+			CONTENT_,
+			AUTHOR_,
+			PUBLISH_TIME_,
+			VIEW_COUNT_,
+			FROM_TYPE_,
+			FROM_URL_,
+			CREATE_TIME_,
+			CREATE_USER_,
+			UPDATE_TIME_,
+			UPDATE_USER_		)
+				VALUES
+		(
+			#{id},
+			#{title},
+			#{desc},
+			#{content},
+			#{author},
+			#{publishTime},
+			#{viewCount},
+			#{fromType},
+			#{fromUrl},
+			#{createTime},
+			#{createUser},
+			#{updateTime},
+			#{updateUser}		)
+	</insert>
+
+	<insert id="insertList">
+		INSERT INTO join_crawler_info (
+			ID_,
+			TITLE_,
+			DESC_,
+			CONTENT_,
+			AUTHOR_,
+			PUBLISH_TIME_,
+			VIEW_COUNT_,
+			FROM_TYPE_,
+			FROM_URL_,
+			CREATE_TIME_,
+			CREATE_USER_,
+			UPDATE_TIME_,
+			UPDATE_USER_		) 
+		VALUES
+		<foreach item="item" collection="list" separator=",">
+		(
+			#{item.id},
+			#{item.title},
+			#{item.desc},
+			#{item.content},
+			#{item.author},
+			#{item.publishTime},
+			#{item.viewCount},
+			#{item.fromType},
+			#{item.fromUrl},
+			#{item.createTime},
+			#{item.createUser},
+			#{item.updateTime},
+			#{item.updateUser}		)
+		</foreach>
+	</insert>
+
+	<update id="update">
+		UPDATE join_crawler_info 
+		SET 
+			ID_ = #{id},
+			TITLE_ = #{title},
+			DESC_ = #{desc},
+			CONTENT_ = #{content},
+			AUTHOR_ = #{author},
+			PUBLISH_TIME_ = #{publishTime},
+			VIEW_COUNT_ = #{viewCount},
+			FROM_TYPE_ = #{fromType},
+			FROM_URL_ = #{fromUrl},
+			CREATE_TIME_ = #{createTime},
+			CREATE_USER_ = #{createUser},
+			UPDATE_TIME_ = #{updateTime},
+			UPDATE_USER_ = #{updateUser}		 		WHERE 
+		id_=#{id}
+	</update>
+
+	<delete id="delete" parameterType="com.crawler.po.JoinCrawlerInfoPo">
+		DELETE FROM join_crawler_info WHERE id_ = #{id}
+	</delete>
+
+	<select id="selectList" parameterType="String" resultMap="JoinCrawlerInfo">
+		SELECT
+			ID_ id,
+			TITLE_ title,
+			DESC_ desc,
+			CONTENT_ content,
+			AUTHOR_ author,
+			PUBLISH_TIME_ publishTime,
+			VIEW_COUNT_ viewCount,
+			FROM_TYPE_ fromType,
+			FROM_URL_ fromUrl,
+			CREATE_TIME_ createTime,
+			CREATE_USER_ createUser,
+			UPDATE_TIME_ updateTime,
+			UPDATE_USER_ updateUser		 		FROM 
+		join_crawler_info
+	</select>
+
+	<select id="count" resultType="Integer">
+		SELECT COUNT(*) FROM join_crawler_info
+	</select>
+</mapper>

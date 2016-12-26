@@ -124,14 +124,14 @@ public class FreeMarkerUtil {
 	}
 	
 	/**
-	 * 生成DAO文件
+	 * 生成PO文件
 	 * @param templateName
 	 */
-	public static void processDao(String templateName){
+	public static void processPo(String templateName){
 		createConfiguration();
 		Map<String, Object> dataModel = createDataModel();
 		Template temp  = getTemplate(templateName);
-		String fileName = PropertyUtil.getPropValue("tblUrl")+((RawObject)dataModel.get("rawObject")).getName()+"Tbl.java";
+		String fileName = PropertyUtil.getPropValue("poUrl")+((RawObject)dataModel.get("rawObject")).getName()+"Po.java";
 		OutputStream outputStream;
 		try {
 			outputStream = new FileOutputStream(new File(fileName));
@@ -142,9 +142,54 @@ public class FreeMarkerUtil {
 		}
 	}
 	
+	/**
+	 * 生成DAO文件
+	 * @param templateName
+	 */
+	public static void processDao(String templateName){
+		createConfiguration();
+		Map<String, Object> dataModel = createDataModel();
+		Template temp  = getTemplate(templateName);
+		String fileName = PropertyUtil.getPropValue("daoUrl")+((RawObject)dataModel.get("rawObject")).getName()+"Dao.java";
+		OutputStream outputStream;
+		try {
+			outputStream = new FileOutputStream(new File(fileName));
+			Writer out = new OutputStreamWriter(outputStream);
+			temp.process(dataModel, out);
+		} catch (TemplateException | IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void commonProcess(String templateName){
+		createConfiguration();
+		Map<String, Object> dataModel = createDataModel();
+		Template temp  = getTemplate(templateName);
+		String nameSuffix ="";
+		if(templateName.toLowerCase().contains("mapper")){
+			nameSuffix = templateName.substring(0, 1).toUpperCase().concat(templateName.substring(1,templateName.length()).replace(".ftl", ".xml"));
+		}else{
+			nameSuffix = templateName.substring(0, 1).toUpperCase().concat(templateName.substring(1,templateName.length()).replace(".ftl", ".java"));
+		}
+		String fileName = PropertyUtil.getPropValue(templateName.replace(".ftl", "Url"))+((RawObject)dataModel.get("rawObject")).getName()+nameSuffix;
+		System.out.println(PropertyUtil.getPropValue("mapperUrl"));
+		OutputStream outputStream;
+		try {
+			outputStream = new FileOutputStream(new File(fileName));
+			Writer out = new OutputStreamWriter(outputStream);
+			temp.process(dataModel, out);
+		} catch (TemplateException | IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	public static void main(String[] args) throws Exception{
-//		FreeMarkerUtil.processTbl("TBL.ftl");
-		FreeMarkerUtil.processMapper("Mapper.ftl");
+	/*	FreeMarkerUtil.processMapper("mapper.ftl");
+		FreeMarkerUtil.processTbl("tbl.ftl");
+		FreeMarkerUtil.processPo("po.ftl");*/
+		FreeMarkerUtil.commonProcess("mapper.ftl");
+		FreeMarkerUtil.commonProcess("po.ftl");
 	}
 	
 }

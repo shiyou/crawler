@@ -1,4 +1,4 @@
-package com.crawler.tbl;
+package com.crawler.po;
 
 import java.util.Date;
 
@@ -15,6 +15,7 @@ public class ${rawObject.name}Po {
 		 * @column(${field.columnsTbl.columnName})
 		*/
 		private ${field.type} ${field.name};
+		
 	</#list>
 	
 	<#list rawFields as field>
@@ -24,11 +25,12 @@ public class ${rawObject.name}Po {
 		public void set${field.name?cap_first }(${field.type} ${field.name}){
 			this.${field.name} = ${field.name};
 		}
+		
 	</#list>
 	
 	@Override
 	public String toString() {
-		return "${rawObject.name}Tbl[<#list rawFields as field>${field.name}="+${field.name}+<#sep>",</#list>"]";
+		return "${rawObject.name}Tbl[<#list rawFields as field>${field.name}="+${field.name}<#if field?counter%5==0> ${'\r'}${'\t'}${'\t'}${'\t'}${'\t'}</#if>+<#sep>",</#list>"]";
 	}
 
 }

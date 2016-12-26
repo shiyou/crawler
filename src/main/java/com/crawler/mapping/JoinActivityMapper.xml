@@ -1,0 +1,120 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crawler.po.JoinActivityPo">
+	<resultMap type="com.crawler.po.JoinActivityPo" id="joinActivityPo">
+		<id column="id_" property="id" />
+			<result column="id_" property="id" />
+			<result column="title_" property="title" />
+			<result column="desc_" property="desc" />
+			<result column="content_" property="content" />
+			<result column="author_" property="author" />
+			<result column="create_time_" property="createTime" />
+			<result column="create_user_" property="createUser" />
+			<result column="update_time_" property="updateTime" />
+			<result column="update_user_" property="updateUser" />
+	</resultMap>
+
+	<select id="select" resultType="com.crawler.po.JoinActivityPo">
+		SELECT 
+			id_ id,
+			title_ title,
+			desc_ desc,
+			content_ content,
+			author_ author,
+			create_time_ createTime,
+			create_user_ createUser,
+			update_time_ updateTime,
+			update_user_ updateUser		FROM 
+			join_activity 
+		WHERE 
+			id_ = #{id}
+	</select>
+
+	<insert id="insert">
+		INSERT INTO join_activity(
+			id_,
+			title_,
+			desc_,
+			content_,
+			author_,
+			create_time_,
+			create_user_,
+			update_time_,
+			update_user_		)
+				VALUES
+		(
+			#{id},
+			#{title},
+			#{desc},
+			#{content},
+			#{author},
+			#{createTime},
+			#{createUser},
+			#{updateTime},
+			#{updateUser}		)
+	</insert>
+
+	<insert id="insertList">
+		INSERT INTO join_activity (
+			id_,
+			title_,
+			desc_,
+			content_,
+			author_,
+			create_time_,
+			create_user_,
+			update_time_,
+			update_user_		) 
+		VALUES
+		<foreach item="item" collection="list" separator=",">
+		(
+			#{item.id},
+			#{item.title},
+			#{item.desc},
+			#{item.content},
+			#{item.author},
+			#{item.createTime},
+			#{item.createUser},
+			#{item.updateTime},
+			#{item.updateUser}		)
+		</foreach>
+	</insert>
+
+	<update id="update">
+		UPDATE join_activity 
+		SET 
+			id_ = #{id},
+			title_ = #{title},
+			desc_ = #{desc},
+			content_ = #{content},
+			author_ = #{author},
+			create_time_ = #{createTime},
+			create_user_ = #{createUser},
+			update_time_ = #{updateTime},
+			update_user_ = #{updateUser}		 		WHERE 
+		id_=#{id}
+	</update>
+
+	<delete id="delete" parameterType="com.crawler.po.JoinActivityPo">
+		DELETE FROM join_activity WHERE id_ = #{id}
+	</delete>
+
+	<select id="selectList" parameterType="String" resultMap="JoinActivity">
+		SELECT
+			id_ id,
+			title_ title,
+			desc_ desc,
+			content_ content,
+			author_ author,
+			create_time_ createTime,
+			create_user_ createUser,
+			update_time_ updateTime,
+			update_user_ updateUser		 		FROM 
+		join_activity
+	</select>
+
+	<select id="count" resultType="Integer">
+		SELECT COUNT(*) FROM join_activity
+	</select>
+</mapper>
