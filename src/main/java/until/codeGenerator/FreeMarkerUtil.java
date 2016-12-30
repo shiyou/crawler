@@ -186,10 +186,14 @@ public class FreeMarkerUtil {
 	
 	public static void main(String[] args) throws Exception{
 	/*	FreeMarkerUtil.processMapper("mapper.ftl");
-		FreeMarkerUtil.processTbl("tbl.ftl");
-		FreeMarkerUtil.processPo("po.ftl");*/
-		FreeMarkerUtil.commonProcess("mapper.ftl");
-		FreeMarkerUtil.commonProcess("po.ftl");
+//		FreeMarkerUtil.processTbl("tbl.ftl");
+//		FreeMarkerUtil.processPo("po.ftl");*/
+//		FreeMarkerUtil.commonProcess("mapper.ftl");
+		String[] ftls = {"mapper.ftl","tbl.ftl","po.ftl","dao.ftl","daoImpl.ftl"};
+		for(String ftl:ftls){
+			FreeMarkerUtil.commonProcess(ftl);
+		}
+		
 	}
 	
 }
