@@ -1,9 +1,23 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.crawler.mapping">
+<mapper namespace="com.crawler.po.CrawlerInfoPo">
 	<resultMap type="com.crawler.po.CrawlerInfoPo" id="crawlerInfoPo">
-	
+		<id column="id_" property="id"/>
+		<result column="title_" property="title"/>
+		<result column="desc_" property="desc"/>
+		<result column="content_" property="content"/>
+		<result column="img_" property="img"/>
+		<result column="pulish_author_" property="publishAuthor"/>
+		<result column="pulish_time_" property="publishTime"/>
+		<result column="requst_from_" property="requstFrom"/>
+		<result column="requst_url_" property="requstUrl"/>
+		<result column="create_by_" property="createBy"/>
+		<result column="create_time_" property="createTime"/>
 	</resultMap>
+	<insert id="insert" parameterType="com.crawler.po.CrawlerInfoPo">
+		insert into crawl_info_(id_,title_,desc_,content_,img_,pulish_author_,pulish_time_,requst_from_,requst_url_,create_by_,create_time_) 
+		values (#{id},#{title},#{desc},#{content},#{img},#{pulishAuthor},#{pulishTime},#{requstFrom},#{requstUrl},#{createBy},#{createTime})
+	</insert>
 	
 </mapper>
