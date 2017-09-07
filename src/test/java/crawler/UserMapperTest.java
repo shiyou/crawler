@@ -13,31 +13,31 @@ import com.crawler.dao.UserDao;
 import com.crawler.po.UserPo;
 
 public class UserMapperTest {
-	private SqlSessionFactory sqlSessionFactory;  
-    
-    //×¢½âBeforeÊÇÔÚÖ´ÐÐ±¾ÀàËùÓÐ²âÊÔ·½·¨Ö®Ç°ÏÈµ÷ÓÃÕâ¸ö·½·¨  
-    @Before  
-    public void setup() throws Exception{  
-        //´´½¨SqlSessionFactory  
-        String resource="SqlMapConfig.xml";  
-          
-        //½«ÅäÖÃÎÄ¼þ¼ÓÔØ³ÉÁ÷  
-        InputStream inputStream = Resources.getResourceAsStream(resource);  
-        //´´½¨»á»°¹¤³§£¬´«ÈëmybatisÅäÖÃÎÄ¼þµÄÐÅÏ¢  
-        sqlSessionFactory=new SqlSessionFactoryBuilder().build(inputStream);  
-    }  
-      
-    @Test  
-    public void testFindUserById() throws Exception{  
-          
-        SqlSession sqlSession=sqlSessionFactory.openSession();  
-          
-        //´´½¨UserMapper´úÀí¶ÔÏó  
-        UserDao userMapper=sqlSession.getMapper(UserDao.class);  
-          
-        //µ÷ÓÃuserMapperµÄ·½·¨  
-        UserPo user=userMapper.getUserById("1");  
-          
-        System.out.println(user.getName());  
-    }  
+    private SqlSessionFactory sqlSessionFactory;
+
+    //×¢ï¿½ï¿½Beforeï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð²ï¿½ï¿½Ô·ï¿½ï¿½ï¿½Ö®Ç°ï¿½Èµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
+    @Before
+    public void setup() throws Exception {
+        //ï¿½ï¿½ï¿½ï¿½SqlSessionFactory  
+        String resource = "SqlMapConfig.xml";
+
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ø³ï¿½ï¿½ï¿½  
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        //ï¿½ï¿½ï¿½ï¿½ï¿½á»°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mybatisï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢  
+        sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+    }
+
+    @Test
+    public void testFindUserById() throws Exception {
+
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        //ï¿½ï¿½ï¿½ï¿½UserMapperï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
+        UserDao userMapper = sqlSession.getMapper(UserDao.class);
+
+        //ï¿½ï¿½ï¿½ï¿½userMapperï¿½Ä·ï¿½ï¿½ï¿½  
+        UserPo user = userMapper.getUserById("1");
+
+        System.out.println(user.getName());
+    }
 }

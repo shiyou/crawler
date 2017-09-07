@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("file")
 public class FileuploadController {
 
-	@RequestMapping("up")
-	public String upload(){
-		
-		return "";
-	}
+    @RequestMapping("up")
+    public String upload() {
+
+        return "";
+    }
 }

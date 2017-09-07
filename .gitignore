@@ -2,3 +2,7 @@ target/
 logs/
 .externalToolBuilders/
 .settings/
+.project
+.classpath
+.idea/
+crawler.iml

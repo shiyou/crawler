@@ -1,0 +1,42 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crawler.mapping">
+	<resultMap type="gov.center.util.generator.ColumnsPo" id="columnsPo">
+		<result column="TABLE_SCHEMA" property="tableSchema"/>
+		<result column="TABLE_NAME" property="tableName"/>
+		<result column="COLUMN_NAME" property="columnName"/>
+		<result column="ORDINAL_POSITION" property="ordinalPosition"/>
+		<result column="COLUMN_DEFAULT" property="columnDefault"/>
+		<result column="IS_NULLABLE" property="isNullable"/>
+		<result column="DATA_TYPE" property="dataType"/>
+		<result column="CHARACTER_MAXIMUM_LENGTH" property="characterMaximumLength"/>
+		<result column="NUMERIC_PRECISION" property="numericPrecision"/>
+		<result column="NUMERIC_SCALE" property="numericScale"/>
+		<result column="COLUMN_TYPE" property="columnType"/>
+		<result column="COLUMN_KEY" property="columnKey"/>
+		<result column="COLUMN_COMMENT" property="columnComment"/>
+	</resultMap>
+
+	<select id="list" resultMap="columnsPo">
+	SELECT COL.TABLE_NAME,
+	       COL.TABLE_NAME,
+	       COL.COLUMN_NAME,
+	       COLUMN_ID     as   ORDINAL_POSITION,
+	       COL.DATA_DEFAULT as  COLUMN_DEFAULT,
+	       NULLABLE      as   IS_NULLABLE,
+	       DATA_TYPE,
+	       DATA_LENGTH   as   CHARACTER_MAXIMUM_LENGTH,
+	       DATA_SCALE    as   NUMERIC_PRECISION,
+	       DATA_SCALE    as   NUMERIC_SCALE,
+	       COMMENTS      as   COLUMN_COMMENT
+	  FROM USER_TAB_COLUMNS  COL
+	 INNER JOIN USER_COL_COMMENTS COMM
+	    ON COMM.COLUMN_NAME = COL.COLUMN_NAME
+	   AND COMM.TABLE_NAME = COL.TABLE_NAME 
+	 WHERE COL.TABLE_NAME = #{tableName}
+	</select>
+	
+	
+
+</mapper>

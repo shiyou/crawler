@@ -11,23 +11,22 @@ import com.crawler.dao.UserDao;
 import com.crawler.po.UserPo;
 
 @Repository("userDao")
-public class UserDaoImpl implements UserDao{
-	
-	@Resource
-	private SqlSession sqlSession;
+public class UserDaoImpl implements UserDao {
 
-	public List<UserPo> getUser() {
-		return sqlSession.selectList("getUser");
-	}
+    @Resource
+    private SqlSession sqlSession;
 
-	public UserPo getUserById(String id) {
-		return sqlSession.selectOne("getUserById", id);
-	}
+    public List<UserPo> getUser() {
+        return sqlSession.selectList("getUser");
+    }
 
-	public int add(UserPo userPo) {
-		return sqlSession.insert("insert", userPo);
-	}
+    public UserPo getUserById(String id) {
+        return sqlSession.selectOne("getUserById", id);
+    }
 
-	
-		
+    public int add(UserPo userPo) {
+        return sqlSession.insert("insert", userPo);
+    }
+
+
 }

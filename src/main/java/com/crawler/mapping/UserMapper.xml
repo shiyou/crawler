@@ -1,44 +1,44 @@
 <!DOCTYPE mapper
-    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.crawler.po.UserPo">
-	<resultMap type="com.crawler.po.UserPo" id="userPo">
-		<id column="id_" property="id"/>
-		<result column="name_" property="name"/>
-		<result column="password_" property="password"/>
-	</resultMap>
-	
-	<select id="select" resultType="com.crawler.po.UserPo">
-		select id_ id,name_ name,password_ password from user_ 
-			where id_= #{id}
-	</select>
-	
-	<insert id="insert">
-		insert into user_(id_,name_,password_) values (#{id},#{name},#{password})
-	</insert>
-	
-	<insert id="insertList">
-		insert into user_ (id_, name_,password_) values
-	  <foreach item="item" collection="list" separator=",">
-	    (#{item.id}, #{item.name}, #{item.password})
-	  </foreach>
-	</insert>
-	
-	<update id="update">
-		update user_ set name_=#{name},password=#{password} 
-			where id_=#{id}
-	</update>
-	
-	<delete id="delete"  parameterType="com.crawler.po.UserPo"> 
-		delete from user_ where id_ = #{id}
-	</delete>
-	
- 	<select id="selectList" parameterType="String" resultMap="userPo">
-		select id_ id,name_ name,password_ password from user_ 
-	</select>
-	
-	<select id="count" resultType="Integer">
-		select count(*) from user_
-	</select>
-	<sql id="test"></sql>
+    <resultMap type="com.crawler.po.UserPo" id="userPo">
+        <id column="id_" property="id"/>
+        <result column="name_" property="name"/>
+        <result column="password_" property="password"/>
+    </resultMap>
+
+    <select id="select" resultType="com.crawler.po.UserPo">
+        select id_ id,name_ name,password_ password from user_
+        where id_= #{id}
+    </select>
+
+    <insert id="insert">
+        insert into user_(id_,name_,password_) values (#{id},#{name},#{password})
+    </insert>
+
+    <insert id="insertList">
+        insert into user_ (id_, name_,password_) values
+        <foreach item="item" collection="list" separator=",">
+            (#{item.id}, #{item.name}, #{item.password})
+        </foreach>
+    </insert>
+
+    <update id="update">
+        update user_ set name_=#{name},password=#{password}
+        where id_=#{id}
+    </update>
+
+    <delete id="delete" parameterType="com.crawler.po.UserPo">
+        delete from user_ where id_ = #{id}
+    </delete>
+
+    <select id="selectList" parameterType="String" resultMap="userPo">
+        select id_ id,name_ name,password_ password from user_
+    </select>
+
+    <select id="count" resultType="Integer">
+        select count(*) from user_
+    </select>
+    <sql id="test"></sql>
 </mapper>

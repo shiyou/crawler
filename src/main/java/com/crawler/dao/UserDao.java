@@ -6,10 +6,10 @@ import com.crawler.po.UserPo;
 
 public interface UserDao {
 
-	
-	List<UserPo> getUser();
 
-	UserPo getUserById(String userId);
-	
-	int add(UserPo userPo);
+    List<UserPo> getUser();
+
+    UserPo getUserById(String userId);
+
+    int add(UserPo userPo);
 }

@@ -8,17 +8,17 @@ import com.crawler.po.CrawlerInfoPo;
 import com.crawler.service.CrawlerInfoService;
 
 @Controller
-@RequestMapping(value="/crawlerInfo")
+@RequestMapping(value = "/crawlerInfo")
 public class CrawlerInfoController {
-	
-	@Autowired
-	public CrawlerInfoService crawlerInfoService;
-	
-	@RequestMapping("test")
-	public void test(){
-		CrawlerInfoPo crawlerInfoPo = new CrawlerInfoPo();
-		crawlerInfoPo.setContent("hhhh");
-		crawlerInfoService.save(crawlerInfoPo);
-	}
+
+    @Autowired
+    public CrawlerInfoService crawlerInfoService;
+
+    @RequestMapping("test")
+    public void test() {
+        CrawlerInfoPo crawlerInfoPo = new CrawlerInfoPo();
+        crawlerInfoPo.setContent("hhhh");
+        crawlerInfoService.save(crawlerInfoPo);
+    }
 
 }

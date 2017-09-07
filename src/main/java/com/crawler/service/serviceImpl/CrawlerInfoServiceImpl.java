@@ -9,13 +9,13 @@ import com.crawler.service.CrawlerInfoService;
 
 @Service("crawlerInfoService")
 public class CrawlerInfoServiceImpl implements CrawlerInfoService {
-	
-	@Autowired
-	private CrawlerInfoDao crawlerinfoDao ;
 
-	@Override
-	public void save(CrawlerInfoPo crawlerInfoPo) {
-		crawlerinfoDao.save(crawlerInfoPo);
-	}
+    @Autowired
+    private CrawlerInfoDao crawlerinfoDao;
+
+    @Override
+    public void save(CrawlerInfoPo crawlerInfoPo) {
+        crawlerinfoDao.save(crawlerInfoPo);
+    }
 
 }
